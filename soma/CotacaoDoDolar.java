@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class SomaDoisNumeros {
+public class CotacaoDoDolar {
     public static void main(String[] args) {
 
         // declaração de variaveis
