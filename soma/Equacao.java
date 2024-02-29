@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class equacao {
+public class Equacao {
     public static void main(String[] args) {
 
         // declaração de variaveis
@@ -17,8 +17,7 @@ public class equacao {
         quartoValor = Double.parseDouble(JOptionPane.showInputDialog("Digite outro valor"));
 
         // processamento
-        resultado = (primeiroValor * primeiroValor) + (segundoValor * segundoValor) + (terceiroValor) * (terceiroValor)
-                + (quartoValor) * (quartoValor);
+        resultado = Math.pow(primeiroValor, 2)+Math.pow(segundoValor, 2)+Math.pow(terceiroValor, 2)+Math.pow(quartoValor, 2);
 
         // saída
         // JOptionPane.showMessageDialog(null, resultado);
