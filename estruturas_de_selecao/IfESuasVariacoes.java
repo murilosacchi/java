@@ -6,27 +6,23 @@ public class IfESuasVariacoes {
         final int VALOR_MINIMO = 0, VALOR_MAXIMO = 10;
         System.out.println("Qual a sua nota?");
         var nota = leitor.nextDouble();
-        // if (nota >= 6) {
-        // System.out.println("Aprovado");
-        // System.out.println("Parabéns");
-        // }
-        // else
-        // System.out.println("De recuperação");
-        // System.out.println("Até logo");
 
         if (nota >= VALOR_MINIMO && nota <= VALOR_MAXIMO) {
             if (nota >= 9) {
                 System.out.println("A");
                 System.out.println("Parabéns");
 
-            } else if (nota >= 6) {
+            } 
+            else if (nota >= 6) {
                 System.out.println("C");
 
-            } else {
+            } 
+            else {
                 System.out.println("De recuperação");
             }
 
-        } else {
+        } 
+        else {
             System.out.println("Nota inválida");
         }
 
