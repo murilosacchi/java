@@ -35,26 +35,45 @@ public class CalculoDoSalario {
             } while (!"MNV".contains(turno));
 
             // valor hora trabalhada
+            double valorHora;
+            double salarioInical;
             if (categoria.contains("G")) {
                 if (turno.contains("N")) {
-                    double salario = salarioMinimo * 0.18;
-                    System.out.println("O valor da hora trabalhada é R$" + salario);
-                } 
-                else {
-                    double salario = salarioMinimo * 0.15;
-                    System.out.println("O valor da hora trabalhada é R$" + salario);
+                    valorHora = salarioMinimo * 0.18;
+                    salarioInical = horasTrabalhadas * valorHora;
+                } else {
+                    valorHora = salarioMinimo * 0.15;
+                    salarioInical = horasTrabalhadas * valorHora;
                 }
-            }
-            else {
+            } else {
                 if (turno.contains("N")) {
-                    double salario = salarioMinimo * 0.13;
-                    System.out.println("O valor da hora trabalhada é R$" + salario); 
+                    valorHora = salarioMinimo * 0.13;
+                    salarioInical = horasTrabalhadas * valorHora;
+                } else {
+                    valorHora = salarioMinimo * 0.10;
+                    salarioInical = horasTrabalhadas * valorHora;
                 }
-                else {
-                    double salario = salarioMinimo * 0.10;
-                    System.out.println("O valor da hora trabalhada é R$" + salario);
-                }
+
             }
+            // auxilio alimentação
+            double auxilioAlimentacao;
+            if (salarioInical <= 300) {
+                auxilioAlimentacao = salarioInical * 0.20;
+            } else if (salarioInical <= 600) {
+                auxilioAlimentacao = salarioInical * 0.15;
+            } else {
+                auxilioAlimentacao = salarioInical * 0.05;
+            }
+
+            // salario final
+            double salarioFinal = salarioInical + auxilioAlimentacao;
+
+            // saídas
+
+            System.out.printf(
+                    "O funcionário %d trabalha %d horas\nO valor da hora trabalhada é R$%.2f\nO salário inicial é R$%.2f\nO auxilio alimentação é R$%.2f\nO sálario final é R$%.2f\n\n",
+                    i + 1, horasTrabalhadas, valorHora, salarioInical, auxilioAlimentacao, salarioFinal);
+
         }
     }
 }
