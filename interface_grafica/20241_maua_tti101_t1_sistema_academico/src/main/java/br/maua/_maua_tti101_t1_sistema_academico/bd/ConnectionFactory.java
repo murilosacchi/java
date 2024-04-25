@@ -13,28 +13,20 @@ import javax.swing.JOptionPane;
  * @author 23.10260-8
  */
 public class ConnectionFactory {
+
     private String host = "mysql-1542a601-teladelogin.b.aivencloud.com";
     private String port = "24374";
     private String db = "defaultdb";
     private String user = "avnadmin";
     private String password = "AVNS_mEviFbuUI95pzyqCgVA";
 
-    public Connection obterConexao() {
-        try {
-            // jdbc:mysql://host:port/db - isso é uma string de conexão
-            // catch or declare
+    public Connection obterConexao() throws Exception {
+        // jdbc:mysql://host:port/db - isso é uma string de conexão
+        // catch or declare
 
-            var stringConexao = String.format(
-                    "jdbc:mysql://%s:%s/%s", host, port, db);
-            Connection conexao = DriverManager.getConnection(stringConexao, user, password);
-            return conexao;
-        }
-
-        catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Falhou, tente novamente mais tarde");
-            return null;
-
-        }
+        var stringConexao = String.format(
+                "jdbc:mysql://%s:%s/%s", host, port, db);
+        Connection conexao = DriverManager.getConnection(stringConexao, user, password);
+        return conexao;
     }
 }

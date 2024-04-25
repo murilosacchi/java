@@ -4,6 +4,8 @@
  */
 package br.maua._maua_tti101_t1_sistema_academico.telas;
 
+import br.maua._maua_tti101_t1_sistema_academico.bd.UsuarioDAO;
+import br.maua._maua_tti101_t1_sistema_academico.modelo.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -113,22 +115,29 @@ public class LoginTela extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaPasswordFieldActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // 1. pegar o login digitado pelo usuário
-        var login = loginTextField.getText();
-        // 2. pegar a senha digitada pelo usuário
-        var senha = new String(senhaPasswordField.getPassword());
+        try {
+            // 1. pegar o login digitado pelo usuário
+            var login = loginTextField.getText();
+            // 2. pegar a senha digitada pelo usuário
+            var senha = new String(senhaPasswordField.getPassword());
+            var u = new Usuario();
+            u.setLogin(login);
+            u.setSenha(senha);
+            var dao = new UsuarioDAO();
+            if (dao.existe(u)) {
+                JOptionPane.showMessageDialog(null, "Bem vindo!");
+            } 
+            else {
+                JOptionPane.showMessageDialog(null, "Par usuário/senha inválido");
+            }
+
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Falha técnica, tente novamente mais tarde");
+        }
+
         // 3. verificar se ambos sao iguais a "admin"
-        // string pool
-        if (login.equals("admin") && senha.equals("admin")) {
-            // 4. se for os casos, dar boas vindas com JOP
-            JOptionPane.showMessageDialog(null, "Bem vindo!");
-        }
-        else{
-            // 5. caso contrário, falar par usuário/senha inválido
-            JOptionPane.showMessageDialog(null, "Par usuário/senha inválido");
-        }
-        
-        
 
     }//GEN-LAST:event_okButtonActionPerformed
 
@@ -172,6 +181,15 @@ public class LoginTela extends javax.swing.JFrame {
         });
     }
 
+    // string pool
+//        if (login.equals("admin") && senha.equals("admin")) {
+//            // 4. se for os casos, dar boas vindas com JOP
+//            JOptionPane.showMessageDialog(null, "Bem vindo!");
+//        }
+//        else{
+//            // 5. caso contrário, falar par usuário/senha inválido
+//            JOptionPane.showMessageDialog(null, "Par usuário/senha inválido");
+//        }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarButton;
     private javax.swing.JButton criarContaButton;

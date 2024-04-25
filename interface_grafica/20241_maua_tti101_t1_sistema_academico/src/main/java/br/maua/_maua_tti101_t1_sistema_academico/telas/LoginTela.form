@@ -28,13 +28,11 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="loginTextField" pref="380" max="32767" attributes="0"/>
                   <Component id="senhaPasswordField" alignment="0" max="32767" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="criarContaButton" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="okButton" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace pref="40" max="32767" attributes="0"/>
-                          <Component id="cancelarButton" min="-2" pref="170" max="-2" attributes="0"/>
-                      </Group>
+                  <Component id="criarContaButton" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="okButton" min="-2" pref="170" max="-2" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <Component id="cancelarButton" min="-2" pref="170" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="36" max="32767" attributes="0"/>
