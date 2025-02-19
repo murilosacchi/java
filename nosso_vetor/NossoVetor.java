@@ -14,4 +14,12 @@ public class NossoVetor {
     public void insere(int i) {
         vetor[ocupacao++] = i;
     }
+
+    public int ocupacaoAtual() {
+        return ocupacao;
+    }
+
+    public int tamanhoAtual() {
+        return vetor.length;
+    }
 }
