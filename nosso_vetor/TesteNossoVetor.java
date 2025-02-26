@@ -1,20 +1,22 @@
 public class TesteNossoVetor {
     public static void main(String[] args) {
-        NossoVetor v1 = new NossoVetor(8);
+        NossoVetor v1 = new NossoVetor(5);
         NossoVetor v2 = new NossoVetor();
 
         v1.insere(2);
         v2.insere(30);
 
-        for (int i = 10; i <= 70; i += 10) {
-            v1.insere(i);
-        }
+        int i = 100;
+        v1.insere(i++);
+        System.out.println(v1.toString());
 
-        if (v1.tamanhoAtual() == v1.ocupacaoAtual()) {
-            System.out.println("O vetor está cheio" + "\nTamanho: " + v1.tamanhoAtual() + "\nOcupação: " + v1.ocupacaoAtual());
-        } else {
-            System.out.println("O tamanho do vetor é " + v1.tamanhoAtual() + " e a ocupação do vetor é " + v1.ocupacaoAtual());
-        }
+        int a = v1.remove();
+        System.out.println("'" + a + "'" + " foi removido\n");
+        System.out.println(v1);
 
+        while (!v1.estaVazio()) {
+            System.out.println(v1.remove() + " foi removido");
+        }
     }
+
 }
