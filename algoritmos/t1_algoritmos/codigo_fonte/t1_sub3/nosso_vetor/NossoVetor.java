@@ -135,6 +135,50 @@ public class NossoVetor {
             vetor[j + 1] = key;
         }
     }
+
+    /**
+     * Realiza uma busca linear no vetor.
+     * 
+     * @param valor O valor a ser buscado.
+     * @return O índice do valor no vetor, ou -1 se não for encontrado.
+     */
+    public int buscaLinear(int valor) {
+        for (int i = 0; i < ocupacao; i++) {
+            if (vetor[i] == valor) {
+                return i;
+            }
+        }
+        return -1; // Valor não encontrado
+    }
+
+    /**
+     * Realiza uma busca binária no vetor.
+     * O vetor deve estar ordenado para que a busca binária funcione corretamente.
+     * 
+     * @param valor O valor a ser buscado.
+     * @return O índice do valor no vetor, ou -1 se não for encontrado.
+     */
+    public int buscaBinaria(int valor) {
+        int inicio = 0;
+        int fim = ocupacao - 1;
+
+        while (inicio <= fim) {
+            int meio = (inicio + fim) / 2;
+
+            if (vetor[meio] == valor) {
+                return meio; // Valor encontrado
+            } else if (vetor[meio] < valor) {
+                inicio = meio + 1; // Busca na metade direita
+            } else {
+                fim = meio - 1; // Busca na metade esquerda
+            }
+        }
+        return -1; // Valor não encontrado
+    }
+
+    public int[] getVetor() {
+        return vetor;
+    }
 }
 
 class VetorVazioException extends RuntimeException {
